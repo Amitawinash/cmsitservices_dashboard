@@ -1,2 +1,2 @@
-# cmsitservices_dashboard
+Dashboard
 Sample dashboard.
