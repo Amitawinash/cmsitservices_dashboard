@@ -30,9 +30,7 @@ export default function CenteredGrid() {
   useEffect(() => {
 
     return () => {
-      console.log(" in last", user);
       removeUserProfile(dispatch)();
-
     }
   }, [])
 
