@@ -157,7 +157,7 @@ export default function MiniDrawer(props) {
         <Divider/>
         <List>
           {
-            [ 'order', 'users', 'products', 'rules'].map((text) => (
+            [ 'order', 'products', 'rules', 'users'].map((text) => (
                 <ListItem button key={text} component={Link} to={"/" + text}
                           onClick={() => props.toggleDrawer('left', false)}>
                   <ListItemIcon>
@@ -176,10 +176,10 @@ export default function MiniDrawer(props) {
       <main className={classes.content}>
         <div className={classes.toolbar}/>
         <Switch>
-          <Route path="/users" component={UsersPage}/>
           <Route path="/order" component={OrderPage}/>
           <Route path="/products" component={ProductPage}/>
           <Route path="/rules" component={ProductRulePage}/>
+          <Route path="/users" component={UsersPage}/>
           <Redirect from="*" to="/order"/>
         </Switch>
       </main>

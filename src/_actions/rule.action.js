@@ -9,7 +9,7 @@ export const addRule = dispatch => rule => {
       result => {
         dispatch({type: ruleConstants.busyInAddRule, payload: false});
         dispatch({type: ruleConstants.addOne, payload: result.rule});
-        // dispatch({type: ruleConstants.showEditModal, payload: {rule: {}, showEditModal: false}});
+        dispatch({type: ruleConstants.showEditModal, payload: {rule: {}, showEditModal: false}});
       }
     ).catch(e => {
     dispatch({type: ruleConstants.busyInAddRule, payload: false});

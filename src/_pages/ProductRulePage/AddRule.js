@@ -9,20 +9,21 @@ import {
   DialogContent, DialogTitle, CircularProgress
 } from "@material-ui/core";
 import {SearchRounded} from "@material-ui/icons";
+import BorderLinearProgress from '../../_components/layout/BorderLinearProgress'
 
-const BorderLinearProgress = withStyles((theme) => ({
-  root: {
-    height: 10,
-    borderRadius: 5,
-  },
-  colorPrimary: {
-    backgroundColor: theme.palette.grey[theme.palette.type === 'light' ? 200 : 700],
-  },
-  bar: {
-    borderRadius: 5,
-    backgroundColor: '#1a90ff',
-  },
-}))(LinearProgress);
+// const BorderLinearProgress = withStyles((theme) => ({
+//   root: {
+//     height: 10,
+//     borderRadius: 5,
+//   },
+//   colorPrimary: {
+//     backgroundColor: theme.palette.grey[theme.palette.type === 'light' ? 200 : 700],
+//   },
+//   bar: {
+//     borderRadius: 5,
+//     backgroundColor: '#1a90ff',
+//   },
+// }))(LinearProgress);
 
 let searchTimeOut;
 
@@ -99,9 +100,7 @@ export default function FormDialog() {
     }
   }
 
-  const handleClose = () => {
-    showRuleModal(dispatch)({}, false);
-  }
+  const handleClose = () => showRuleModal(dispatch)({}, false);
 
   const handleProductName = (e) => {
     e.persist();
