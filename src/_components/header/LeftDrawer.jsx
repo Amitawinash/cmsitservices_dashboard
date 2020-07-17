@@ -21,15 +21,11 @@ import EyeIcon from '@material-ui/icons/Visibility';
 import WalletIcon from '@material-ui/icons/AccountBalanceWalletOutlined'
 import {Link} from "react-router-dom";
 import {UsersPage} from "../../_pages/UsersPage";
+import {OrderPage} from "../../_pages/OrderPage";
 import {Route, Switch, Redirect} from 'react-router-dom';
+import {ProductPage} from "../../_pages/ProductPage";
+import {ProductRulePage} from "../../_pages/ProductRulePage";
 const drawerWidth = 240;
-
-const Page = (name) => {
-  const Comp = () => {
-    return (<h1 style={{textAlign: 'center'}}>{name}</h1>)
-  }
-  return Comp;
-}
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -89,7 +85,6 @@ const useStyles = makeStyles((theme) => ({
     alignItems: 'center',
     justifyContent: 'flex-end',
     padding: theme.spacing(0, 1),
-    // necessary for content to be below app bar
     ...theme.mixins.toolbar,
   },
   content: {
@@ -110,13 +105,11 @@ export default function MiniDrawer(props) {
   const handleDrawerClose = () => {
     setOpen(false);
   };
-  const img = <img style={{marginTop: 10}}src="https://unsplash.it/40/40"/>
   return (
     <div className={classes.root}>
       <CssBaseline/>
       <AppBar
         position="fixed"
-        title={img}
         className={clsx(classes.appBar, {
           [classes.appBarShift]: open,
         })}
@@ -164,14 +157,14 @@ export default function MiniDrawer(props) {
         <Divider/>
         <List>
           {
-            ['user', 'leaf', 'eye', 'wallet'].map((text, index) => (
+            [ 'order', 'users', 'products', 'rules'].map((text) => (
                 <ListItem button key={text} component={Link} to={"/" + text}
                           onClick={() => props.toggleDrawer('left', false)}>
                   <ListItemIcon>
-                    {text === 'user' && <UserIcon/>}
-                    {text === 'leaf' && <LeafIcon/>}
-                    {text === 'eye' && <EyeIcon/>}
-                    {text === 'wallet' && <WalletIcon/>}
+                    {text === 'users' && <UserIcon/>}
+                    {text === 'order' && <LeafIcon/>}
+                    {text === 'products' && <EyeIcon/>}
+                    {text === 'rules' && <WalletIcon/>}
                   </ListItemIcon>
                     <ListItemText primary={text.toUpperCase()}/>
                 </ListItem>
@@ -184,10 +177,10 @@ export default function MiniDrawer(props) {
         <div className={classes.toolbar}/>
         <Switch>
           <Route path="/users" component={UsersPage}/>
-          <Route path="/leaf" component={Page('Leaf')}/>
-          <Route path="/eye" component={Page('Eye')}/>
-          <Route path="/wallet" component={Page('Wallet')}/>
-          <Redirect from="*" to="/users"/>
+          <Route path="/order" component={OrderPage}/>
+          <Route path="/products" component={ProductPage}/>
+          <Route path="/rules" component={ProductRulePage}/>
+          <Redirect from="*" to="/order"/>
         </Switch>
       </main>
     </div>

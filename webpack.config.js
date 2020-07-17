@@ -21,7 +21,8 @@ module.exports = {
     },
     externals: {
         config: JSON.stringify({
-            apiUrl: 'https://reqres.in/api'
+            apiUrl: 'https://reqres.in/api',
+            backendApi: 'http://localhost:4000/api/v1'
         })
     }
 }

@@ -1,13 +1,12 @@
 import React from 'react';
 import {DefaultLayout} from "../../_components/layout/DefaultLayout";
-import UserTabs from "./UserTabs";
 
-function UsersPage() {
+function OrderPage() {
   return (
-    <DefaultLayout title={"User Page"}>
-      <UserTabs/>
+    <DefaultLayout title={"Order Page"}>
+      body
     </DefaultLayout>
   );
 }
 
-export {UsersPage};
+export {OrderPage};
