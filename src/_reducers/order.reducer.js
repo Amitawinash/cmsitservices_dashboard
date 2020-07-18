@@ -42,7 +42,8 @@ export function orderReducer(state = defaultOrderState, action) {
 
     case orderConstants.removeAllOrders:
       return {
-        ...defaultOrderState
+        ...state,
+        orders: []
       };
 
     default:

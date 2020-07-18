@@ -14,7 +14,7 @@ export const removeOrder = dispatch => order => {
   });
 }
 
-export const removeAllOrders = dispatch => order => {
+export const removeAllOrders = dispatch => () => {
   return new Promise((resolve, reject) => {
     dispatch({type: orderConstants.removeAllOrders});
     resolve();

@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import {
-  Divider, InputAdornment, List, ListItem, ListItemText, TextField,
+  Divider, InputAdornment, TextField,
   Typography, Button
 } from "@material-ui/core";
 import {SearchRounded} from "@material-ui/icons";
@@ -9,7 +9,7 @@ import BorderLinearProgress from '../../_components/layout/BorderLinearProgress'
 import SelectPrivilegeCustomer from "./SelectPrivilegeCustomer";
 import DeleteIcon from "@material-ui/icons/Delete";
 import Table from './Table';
-import {setCustomerToReducer, setOrderRules} from '../../_actions'
+import {setCustomerToReducer, setOrderRules, removeAllOrders} from '../../_actions'
 import {useDispatch} from "react-redux";
 var searchTimeOut;
 
@@ -100,7 +100,10 @@ function OrderForm() {
         variant="contained"
         color="secondary"
         size={"small"}
-        onClick={() => setCustomer('')}
+        onClick={() => {
+          setCustomer('');
+          removeAllOrders(dispatch)();
+        }}
         startIcon={<DeleteIcon/>}
       >
         Cancel Order
