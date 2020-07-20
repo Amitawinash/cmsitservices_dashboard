@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, {useEffect} from 'react';
 import {withStyles, makeStyles} from '@material-ui/core/styles';
 import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
@@ -9,8 +9,6 @@ import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
 import {useDispatch, useSelector} from "react-redux";
 import {getRules} from '../../_actions';
-import CurrencyIcon from '@material-ui/icons/AttachMoney';
-import Typography from "@material-ui/core/Typography";
 import {LinearProgress} from "@material-ui/core"
 import Button from "@material-ui/core/Button";
 import {showRuleModal} from '../../_actions'

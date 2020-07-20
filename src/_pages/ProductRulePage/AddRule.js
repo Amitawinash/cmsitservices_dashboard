@@ -1,11 +1,10 @@
 import React, {useEffect, useState} from 'react';
-import {withStyles} from '@material-ui/core/styles';
 import {useSnackbar} from "notistack";
 import {addRule, showRuleModal, editRule} from "../../_actions";
 import {useDispatch, useSelector} from "react-redux";
 import {productService} from '../../_services'
 import {
-  LinearProgress, InputAdornment, List, ListItem, ListItemText, Divider, TextField, Button, Dialog, DialogActions,
+  InputAdornment, List, ListItem, ListItemText, Divider, TextField, Button, Dialog, DialogActions,
   DialogContent, DialogTitle, CircularProgress
 } from "@material-ui/core";
 import {SearchRounded} from "@material-ui/icons";

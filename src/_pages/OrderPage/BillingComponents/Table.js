@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React from 'react';
 import { withStyles, makeStyles } from '@material-ui/core/styles';
 import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
@@ -11,8 +11,7 @@ import {useDispatch, useSelector} from "react-redux";
 import CurrencyIcon from '@material-ui/icons/AttachMoney';
 import Typography from "@material-ui/core/Typography";
 import Button from "@material-ui/core/Button";
-import {showProductModal, getProduct, addOrder, removeOrder} from '../../../_actions';
-import {LinearProgress} from "@material-ui/core";
+import {addOrder, removeOrder} from '../../../_actions';
 import AddIcon from '@material-ui/icons/Add';
 import RemoveIcon from '@material-ui/icons/Remove';
 

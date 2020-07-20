@@ -23,7 +23,7 @@ export default function SimpleMenu(props) {
 
   return (
     <div>
-      <Button aria-controls="simple-menu" aria-haspopup="true" onClick={handleClick}>
+      <Button variant="contained" size="small" color="primary" aria-controls="simple-menu" aria-haspopup="true" onClick={handleClick}>
         Select Customer
       </Button>
       {props.children}

@@ -1,7 +1,6 @@
 import {userService} from '../_services';
 import {userConstants} from '../_constants';
 
-
 export const getUsers = (dispatch) => (query) => {
   userService.getAll(query)
     .then(
@@ -10,7 +9,6 @@ export const getUsers = (dispatch) => (query) => {
       }
     ).catch(e => console.log(e));
 }
-
 
 export const showUserProfile = dispatch => user => {
   return new Promise((resolve, reject) => {

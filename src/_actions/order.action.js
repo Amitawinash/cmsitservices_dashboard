@@ -34,4 +34,3 @@ export const setOrderRules = dispatch => rules => {
     resolve();
   });
 }
-

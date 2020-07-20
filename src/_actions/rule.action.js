@@ -1,7 +1,6 @@
 import {ruleService} from '../_services';
 import {ruleConstants} from '../_constants';
 
-
 export const addRule = dispatch => rule => {
   dispatch({type: ruleConstants.busyInAddRule, payload: true});
   ruleService.addOne(rule)
@@ -42,7 +41,6 @@ export const showRuleModal = dispatch => (rule, open) => {
   })
 }
 
-
 export const getRules = (dispatch) => (query) => {
   dispatch({type: ruleConstants.fetchingRules, payload: true});
 
@@ -58,10 +56,6 @@ export const getRules = (dispatch) => (query) => {
     console.log(e)
   });
 }
-
-
-
-
 
 export const removeUserProfile = (dispatch) => () => {
   return new Promise((resolve, reject) => {

@@ -1,7 +1,6 @@
 import {productService} from '../_services';
 import {productConstants, userConstants} from '../_constants';
 
-
 export const addProduct = dispatch => product => {
   dispatch({type: productConstants.busyInAddProduct, payload: true});
   productService.addOne(product)
@@ -59,17 +58,12 @@ export const getProduct = (dispatch) => (query) => {
       reject([]);
       console.log(e)
     });
-  })
-
+  });
 }
-
-
-
-
 
 export const removeUserProfile = (dispatch) => () => {
   return new Promise((resolve, reject) => {
     dispatch({type: productConstants.removeProfile});
     resolve();
-  })
+  });
 }
