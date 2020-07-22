@@ -11,5 +11,6 @@ export const ruleConstants = {
   busyInEditRule: 'busyInEditRule',
   errorInEditRule: 'errorInEditRule',
   editOne: 'editOneRule',
-  addOne: 'addOneRule'
+  addOne: 'addOneRule',
+  paginationRule: 'paginationRule'
 };

@@ -4,7 +4,8 @@ const defaultProductState = {
   products: [], product: {}, showEditModal: false,
   errorInAddProduct: false, busyInAddProduct: false,
   errorInEditProduct: false,
-  fetchingProducts: false, errorFetchingProducts: false
+  fetchingProducts: false, errorFetchingProducts: false,
+  pageNumber: 1, itemsPerPage: 4, totalItems: 0
 };
 
 export function productReducer(state = defaultProductState, action) {
@@ -13,7 +14,8 @@ export function productReducer(state = defaultProductState, action) {
     case productConstants.getAll:
       return {
         ...state,
-        products: [...action.payload]
+        products: [...action.payload.products],
+        totalItems: action.payload.count
       };
 
     case productConstants.addOne:
@@ -61,7 +63,11 @@ export function productReducer(state = defaultProductState, action) {
         ...state,
         errorFetchingProducts: action.payload
       };
-
+    case productConstants.pagination:
+      return {
+        ...state,
+        ...action.payload
+      };
     default:
       return state
   }

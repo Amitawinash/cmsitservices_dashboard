@@ -11,5 +11,6 @@ export const productConstants = {
   busyInEditProduct: 'busyInEditProduct',
   errorInEditProduct: 'errorInEditProduct',
   editOne: 'editOneProduct',
-  addOne: 'addOneProduct'
+  addOne: 'addOneProduct',
+  paginationProduct: 'paginationProduct'
 };

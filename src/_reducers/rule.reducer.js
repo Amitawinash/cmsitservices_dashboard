@@ -1,10 +1,11 @@
-import {ruleConstants} from '../_constants';
+import {productConstants, ruleConstants} from '../_constants';
 
 const defaultRuleState = {
   rules: [], rule: {}, showEditModal: false,
   errorInAddRule: false, busyInAddRule: false,
   errorInEditRule: false,
-  fetchingRules: false, errorFetchingRules: false
+  fetchingRules: false, errorFetchingRules: false,
+  pageNumber: 1, itemsPerPage: 3, totalItems: 0
 };
 
 export function ruleReducer(state = defaultRuleState, action) {
@@ -13,7 +14,9 @@ export function ruleReducer(state = defaultRuleState, action) {
     case ruleConstants.getAll:
       return {
         ...state,
-        rules: [...action.payload]
+        rules: [...action.payload.rules],
+        totalItems: action.payload.count
+
       };
 
     case ruleConstants.addOne:
@@ -60,6 +63,11 @@ export function ruleReducer(state = defaultRuleState, action) {
       return {
         ...state,
         errorFetchingRules: action.payload
+      };
+    case productConstants.pagination:
+      return {
+        ...state,
+        ...action.payload
       };
 
     default:

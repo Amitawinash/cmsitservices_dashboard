@@ -1,5 +1,5 @@
 import {productService} from '../_services';
-import {productConstants, userConstants} from '../_constants';
+import {productConstants} from '../_constants';
 
 export const addProduct = dispatch => product => {
   dispatch({type: productConstants.busyInAddProduct, payload: true});
@@ -15,7 +15,7 @@ export const addProduct = dispatch => product => {
     dispatch({type: productConstants.errorInAddProduct, payload: true});
     console.log(e)
   });
-}
+};
 
 export const editProduct = dispatch => (_id, product) => {
   dispatch({type: productConstants.busyInEditProduct, payload: true});
@@ -23,7 +23,7 @@ export const editProduct = dispatch => (_id, product) => {
     .then(
       result => {
         dispatch({type: productConstants.busyInEditProduct, payload: false});
-        dispatch({type: productConstants.editOne, payload: result.product|| {}});
+        dispatch({type: productConstants.editOne, payload: result.product || {}});
         dispatch({type: productConstants.showEditModal, payload: {product: {}, showEditModal: false}});
 
       }
@@ -32,24 +32,24 @@ export const editProduct = dispatch => (_id, product) => {
     dispatch({type: productConstants.errorInEditProduct, payload: true});
     console.log(e)
   });
-}
+};
 
 export const showProductModal = dispatch => (product, open) => {
   return new Promise((resolve, reject) => {
     dispatch({type: productConstants.showEditModal, payload: {product, showEditModal: open}});
     resolve();
-  })
-}
+  });
+};
 
-export const getProduct = (dispatch) => (query) => {
+export const getProducts = (dispatch) => (query, pagination) => {
   return new Promise((resolve, reject) => {
     dispatch({type: productConstants.fetchingProducts, payload: true});
-
-    productService.getAll(query)
+    productService.getAll(query, pagination)
       .then(
         result => {
           dispatch({type: productConstants.fetchingProducts, payload: false});
-          dispatch({type: productConstants.getAll, payload: result.products});
+          dispatch({type: productConstants.getAll, payload: result});
+          dispatch({type: productConstants.paginationProduct, payload: pagination})
           resolve(result.products);
         }
       ).catch(e => {
@@ -59,11 +59,11 @@ export const getProduct = (dispatch) => (query) => {
       console.log(e)
     });
   });
-}
+};
 
 export const removeUserProfile = (dispatch) => () => {
   return new Promise((resolve, reject) => {
     dispatch({type: productConstants.removeProfile});
     resolve();
   });
-}
+};

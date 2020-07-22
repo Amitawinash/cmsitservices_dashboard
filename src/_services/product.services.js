@@ -28,10 +28,11 @@ function editOne(_id, product = {}) {
     });
 }
 
-function getAll(query = {}) {
+function getAll(query = {}, pagination) {
   return axios.get(`${config.backendApi}/product`,{
     params: {
-      q: {...query}
+      q: {...query},
+        ...pagination
     }
   })
     .then(result => {

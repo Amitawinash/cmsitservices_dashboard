@@ -44,7 +44,7 @@ export default function RuleTable() {
   const {rules, fetchingRules} = useSelector(state => state.ruleReducer);
 
   useEffect(() => {
-    getRules(dispatch)();
+    getRules(dispatch)({}, {pageNumber: 1, itemsPerPage: 3});
   }, []);
 
   const handleEdit = rule => () => showRuleModal(dispatch)(rule, true);

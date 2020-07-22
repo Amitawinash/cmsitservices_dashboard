@@ -1,18 +1,11 @@
 import React from 'react';
 import AddIcon from '@material-ui/icons/Add';
 import {Button, Grid} from "@material-ui/core";
-import Pagination from "@material-ui/lab/Pagination";
 import AddProduct from "./AddProduct";
 import {useDispatch, useSelector} from "react-redux";
 import {showProductModal} from "../../_actions";
+import Pagination from "../../_components/layout/Pagination";
 
-function BasicPagination() {
-  return (
-    <>
-      <Pagination size={"small"} count={10} color="primary"/>
-    </>
-  );
-}
 
 function Filters() {
   const dispatch = useDispatch();
@@ -37,7 +30,7 @@ function Filters() {
         </Button>
       </Grid>
       <Grid item xs={12} md={4}>
-        {/*<BasicPagination/>*/}
+        <Pagination actionName={'getProducts'} reducerName={'productReducer'}/>
       </Grid>
     </Grid>
   );

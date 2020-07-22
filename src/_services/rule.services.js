@@ -20,11 +20,12 @@ function editOne(_id, rule = {}) {
     });
 }
 
-function getAll(query = {}) {
+function getAll(query = {}, pagination) {
   return axios.get(`${config.backendApi}/rule`,
     {
       params: {
-        q: {...query}
+        q: {...query},
+        ...pagination
       }
     })
     .then(result => {

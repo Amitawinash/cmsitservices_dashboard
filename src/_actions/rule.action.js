@@ -41,14 +41,14 @@ export const showRuleModal = dispatch => (rule, open) => {
   })
 }
 
-export const getRules = (dispatch) => (query) => {
+export const getRules = (dispatch) =>  (query, pagination) => {
   dispatch({type: ruleConstants.fetchingRules, payload: true});
-
-  ruleService.getAll(query)
+  ruleService.getAll(query, pagination)
     .then(
       result => {
         dispatch({type: ruleConstants.fetchingRules, payload: false});
-        dispatch({type: ruleConstants.getAll, payload: result.rules});
+        dispatch({type: ruleConstants.getAll, payload: result});
+        dispatch({type: ruleConstants.paginationRule, payload: pagination})
       }
     ).catch(e => {
     dispatch({type: ruleConstants.fetchingRules, payload: false});

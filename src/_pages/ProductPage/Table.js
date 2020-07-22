@@ -8,7 +8,7 @@ import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
 import {useDispatch, useSelector} from "react-redux";
-import {getProduct} from '../../_actions';
+import {getProducts} from '../../_actions';
 import CurrencyIcon from '@material-ui/icons/AttachMoney';
 import Typography from "@material-ui/core/Typography";
 import Button from "@material-ui/core/Button";
@@ -46,7 +46,7 @@ export default function ProductTable() {
   const {products, fetchingProducts} = useSelector(state => state.productReducer);
 
   useEffect(() => {
-    getProduct(dispatch)();
+    getProducts(dispatch)({},{pageNumber: 1, itemsPerPage: 4});
   }, []);
 
   const handleEdit = product => () => showProductModal(dispatch)(product, true)
@@ -80,7 +80,6 @@ export default function ProductTable() {
               <StyledTableCell align="center">
                 <Button size="small" color="primary" onClick={handleEdit(product)}>Edit</Button>
               </StyledTableCell>
-
             </StyledTableRow>
           ))}
         </TableBody>

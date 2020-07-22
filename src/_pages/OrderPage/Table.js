@@ -11,7 +11,7 @@ import {useDispatch, useSelector} from "react-redux";
 import CurrencyIcon from '@material-ui/icons/AttachMoney';
 import Typography from "@material-ui/core/Typography";
 import Button from "@material-ui/core/Button";
-import {addOrder, getProduct, removeOrder} from '../../_actions'
+import {addOrder, getProducts, removeOrder} from '../../_actions'
 import {LinearProgress} from "@material-ui/core";
 import AddIcon from '@material-ui/icons/Add';
 import RemoveIcon from '@material-ui/icons/Remove';
@@ -46,7 +46,7 @@ export default function ProductTable(props) {
   const {fetchingProducts} = useSelector(state => state.productReducer);
 
   useEffect(() => {
-    getProduct(dispatch)();
+    getProducts(dispatch)();
   }, []);
 
   const handleAddOrder = (product) => () => addOrder(dispatch)(product);
